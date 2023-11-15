@@ -31,7 +31,9 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")
+        cell.textLabel?.text = assignments[indexPath.row]
+        return cell
     }
     
     @IBAction func addButton(_ sender: UIButton) {
