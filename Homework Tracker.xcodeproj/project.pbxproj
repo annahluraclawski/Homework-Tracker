@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9954FA5D2B0517A20013FC2B /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */; };
+		9954FA5F2B051A170013FC2B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9954FA5E2B051A170013FC2B /* Assignment.swift */; };
 		99D8CFE72B027F9200A05BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8CFE62B027F9200A05BCB /* AppDelegate.swift */; };
 		99D8CFE92B027F9200A05BCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8CFE82B027F9200A05BCB /* SceneDelegate.swift */; };
 		99D8CFEB2B027F9200A05BCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8CFEA2B027F9200A05BCB /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
+		9954FA5E2B051A170013FC2B /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		99D8CFE32B027F9200A05BCB /* Homework Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D8CFE62B027F9200A05BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99D8CFE82B027F9200A05BCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				99D8CFE82B027F9200A05BCB /* SceneDelegate.swift */,
 				99D8CFEA2B027F9200A05BCB /* ViewController.swift */,
 				99D8CFEC2B027F9200A05BCB /* Main.storyboard */,
+				9954FA5E2B051A170013FC2B /* Assignment.swift */,
 				9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */,
 				99D8CFF22B027F9400A05BCB /* Assets.xcassets */,
 				99D8CFF42B027F9400A05BCB /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9954FA5F2B051A170013FC2B /* Assignment.swift in Sources */,
 				99D8CFF12B027F9200A05BCB /* Homework_Tracker.xcdatamodeld in Sources */,
 				99D8CFEB2B027F9200A05BCB /* ViewController.swift in Sources */,
 				99D8CFE72B027F9200A05BCB /* AppDelegate.swift in Sources */,

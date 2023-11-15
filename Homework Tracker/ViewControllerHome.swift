@@ -7,23 +7,35 @@
 
 import UIKit
 
-class ViewControllerHome: UIViewController {
+class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    @IBOutlet weak var tableViewOutlet: UITableView!
+    
+    var assignments : [String] = []
+    
+    @IBOutlet weak var textFieldOutlet: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableViewOutlet.delegate = self
+        tableViewOutlet.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    @IBAction func addButton(_ sender: UIButton) {
+    }
+    
 
 }
