@@ -15,9 +15,13 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     let defaults = UserDefaults.standard
     
     var assignments = [""]
+    var classes = [""]
     //var assignments2 = ""
     var count = 0
     @IBOutlet weak var textFieldOutlet: UITextField!
+    
+    @IBOutlet weak var textFieldOutlet2: UITextField!
+    
     
 
     override func viewDidLoad() {
@@ -41,12 +45,14 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Assignment
         cell.assignmentOutlet.text = assignments[indexPath.row]
+        cell.classOutlet.text = assignments[indexPath.row]
         return cell
     }
     
     @IBAction func addButton(_ sender: UIButton) {
         
         let item = textFieldOutlet.text!
+        let item2 = textFieldOutlet2.text!
         for n in assignments{
             if(n == item){
                 let alert = UIAlertController(title: "Error", message: "assignment already inputted", preferredStyle: .alert)
@@ -59,6 +65,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
         }
              if (count == 0){
                 assignments.append(item)
+                 classes.append(item2)
                
             }
             self.tableViewOutlet.reloadData()
