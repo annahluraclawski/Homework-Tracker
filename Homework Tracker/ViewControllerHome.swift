@@ -16,6 +16,8 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     
     var assignments = [""]
     var classes = [""]
+    var num = 0
+   
     //var assignments2 = ""
     var count = 0
     @IBOutlet weak var textFieldOutlet: UITextField!
@@ -35,6 +37,14 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
             assignments = c as! [String]
             tableViewOutlet.reloadData()
         }
+        if let b =  defaults.array(forKey: "theClasses") {
+            classes = b as! [String]
+            tableViewOutlet.reloadData()
+        }
+       
+        
+      
+       
     }
     
 
@@ -45,7 +55,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Assignment
         cell.assignmentOutlet.text = assignments[indexPath.row]
-        cell.classOutlet.text = assignments[indexPath.row]
+       // cell.classOutlet.text = classes[indexPath.row]
         return cell
     }
     
@@ -65,25 +75,38 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
         }
              if (count == 0){
                 assignments.append(item)
-                 classes.append(item2)
-               
+                classes.append(item2)
             }
             self.tableViewOutlet.reloadData()
         //defaults.set(item, forKey: "theAssignments")
         defaults.set(assignments, forKey: "theAssignments")
-        
+        defaults.set(classes, forKey: "theClasses")
         }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         assignments.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         defaults.set(assignments, forKey: "theAssignments")
-        
+        defaults.set(classes, forKey: "theClasses")
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        assignments[indexPath.row] = "\(assignments[indexPath.row]) completed"
+
+        
+        if (num == 0){
+            assignments[indexPath.row] = "completed"
+        }
+       else if (num == 1){
+            assignments[indexPath.row] = "test"
+            num-=1
+        }
+        num += 1
+        
+        
         defaults.set(assignments, forKey: "theAssignments")
+        defaults.set(classes, forKey: "theClasses")
+       
+       
         tableViewOutlet.reloadData()
     }
     
