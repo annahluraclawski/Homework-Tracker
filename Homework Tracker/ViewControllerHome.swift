@@ -7,13 +7,25 @@
 
 import UIKit
 
+public class School : Codable {
+    var classs: String
+    var assignment: String
+    
+    init(classs: String, assignment: String) {
+        self.classs = classs
+        self.assignment = assignment
+    }
+}
+
 class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     
     let defaults = UserDefaults.standard
-    
+    var item = ""
+    var item2 = ""
+    var stuff : [School] = []
     var assignments = [""]
     var classes = [""]
     var num = 0
@@ -33,15 +45,20 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
         tableViewOutlet.dataSource = self
         //assignments2 = defaults.string(forKey: "theAssignments") ?? ""
         //assignments.append(assignments2)
-        if let c =  defaults.array(forKey: "theAssignments") {
-            assignments = c as! [String]
-            tableViewOutlet.reloadData()
-        }
-        if let b =  defaults.array(forKey: "theClasses") {
-            classes = b as! [String]
-            tableViewOutlet.reloadData()
-        }
-       
+        if let items = defaults.data(forKey: "theStuff") {
+                        let decoder = JSONDecoder()
+         //decoding a JSAN to an object
+            if let decoded = try? decoder.decode([School].self, from: items) {
+                //make global variable
+                            stuff = decoded
+                        }
+                }
+//        for x in stuff{
+//            print(x.classs)
+//
+//        }
+        
+    
         
       
        
@@ -49,20 +66,21 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return assignments.count
+        return stuff.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Assignment
-        cell.assignmentOutlet.text = assignments[indexPath.row]
-       // cell.classOutlet.text = classes[indexPath.row]
+        cell.assignmentOutlet.text = "\(stuff[indexPath.row].classs)"
+        cell.classOutlet.text = "\(stuff[indexPath.row].assignment)"
         return cell
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        
-        let item = textFieldOutlet.text!
-        let item2 = textFieldOutlet2.text!
+         item = textFieldOutlet.text!
+         item2 = textFieldOutlet2.text!
+        var test = School(classs: item, assignment: item2)
+       
         for n in assignments{
             if(n == item){
                 let alert = UIAlertController(title: "Error", message: "assignment already inputted", preferredStyle: .alert)
@@ -74,37 +92,34 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
              if (count == 0){
-                assignments.append(item)
-                classes.append(item2)
+                 stuff.append(test)
             }
             self.tableViewOutlet.reloadData()
-        //defaults.set(item, forKey: "theAssignments")
-        defaults.set(assignments, forKey: "theAssignments")
-        defaults.set(classes, forKey: "theClasses")
+      
+        let encoder = JSONEncoder()
+          if let encoded = try? encoder.encode(stuff) {
+                           defaults.set(encoded, forKey: "theStuff")
+                       }
         }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        assignments.remove(at: indexPath.row)
+        stuff.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
-        defaults.set(assignments, forKey: "theAssignments")
-        defaults.set(classes, forKey: "theClasses")
+        let encoder = JSONEncoder()
+          if let encoded = try? encoder.encode(stuff) {
+                           defaults.set(encoded, forKey: "theStuff")
+                       }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        stuff[indexPath.row].assignment = "completed"
+        stuff[indexPath.row].classs = ""
         
-        if (num == 0){
-            assignments[indexPath.row] = "completed"
-        }
-       else if (num == 1){
-            assignments[indexPath.row] = "test"
-            num-=1
-        }
-        num += 1
-        
-        
-        defaults.set(assignments, forKey: "theAssignments")
-        defaults.set(classes, forKey: "theClasses")
+        let encoder = JSONEncoder()
+          if let encoded = try? encoder.encode(stuff) {
+                           defaults.set(encoded, forKey: "theStuff")
+                       }
        
        
         tableViewOutlet.reloadData()
