@@ -81,8 +81,11 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
          item2 = textFieldOutlet2.text!
         var test = School(classs: item, assignment: item2)
        
-        for n in assignments{
-            if(n == item){
+        for n in stuff {
+            
+            print(n.assignment)
+            print(item)
+            if(n.assignment == item){
                 let alert = UIAlertController(title: "Error", message: "assignment already inputted", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "ok", style: .destructive, handler: nil)
                 alert.addAction(okAction)
@@ -126,6 +129,10 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    @IBAction func sortButtonAction(_ sender: UIButton) {
+        stuff.sort{$0.assignment < $1.assignment}
+        tableViewOutlet.reloadData()
+    }
     
 
 }

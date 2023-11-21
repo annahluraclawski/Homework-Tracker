@@ -88,6 +88,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2B-9T-qxx">
+                                <rect key="frame" x="278" y="58" width="54" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="folder" catalog="system"/>
+                                <connections>
+                                    <action selector="sortButtonAction:" destination="nM2-TD-XYQ" eventType="touchUpInside" id="7Pu-wn-asP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YBe-7k-jCh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,6 +113,22 @@
             </objects>
             <point key="canvasLocation" x="548.85496183206101" y="683.80281690140851"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Pi8-6p-fyI">
+            <objects>
+                <viewController id="wWf-tk-qv8" customClass="ViewControllerGrades" customModule="Homework_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aPN-Uy-Tuj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FoC-x0-0Xc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="It5-QG-zjr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZj-Ni-pBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437" y="695"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mxE-Li-GIn">
             <objects>
@@ -117,6 +142,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="RCn-jK-aCh"/>
                         <segue destination="nM2-TD-XYQ" kind="relationship" relationship="viewControllers" id="inO-q9-xfQ"/>
+                        <segue destination="wWf-tk-qv8" kind="relationship" relationship="viewControllers" id="iBF-zh-Ruw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkf-QN-Bdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,6 +151,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="folder" catalog="system" width="128" height="96"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

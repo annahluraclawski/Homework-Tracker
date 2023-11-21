@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		992116C62B0D060D00FC2D6E /* ViewControllerGrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992116C52B0D060D00FC2D6E /* ViewControllerGrades.swift */; };
 		9954FA5D2B0517A20013FC2B /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */; };
 		9954FA5F2B051A170013FC2B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9954FA5E2B051A170013FC2B /* Assignment.swift */; };
 		99D8CFE72B027F9200A05BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8CFE62B027F9200A05BCB /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		992116C52B0D060D00FC2D6E /* ViewControllerGrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGrades.swift; sourceTree = "<group>"; };
 		9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
 		9954FA5E2B051A170013FC2B /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		99D8CFE32B027F9200A05BCB /* Homework Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				99D8CFE62B027F9200A05BCB /* AppDelegate.swift */,
 				99D8CFE82B027F9200A05BCB /* SceneDelegate.swift */,
 				99D8CFEA2B027F9200A05BCB /* ViewController.swift */,
+				992116C52B0D060D00FC2D6E /* ViewControllerGrades.swift */,
 				99D8CFEC2B027F9200A05BCB /* Main.storyboard */,
 				9954FA5E2B051A170013FC2B /* Assignment.swift */,
 				9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */,
@@ -273,6 +276,7 @@
 				99D8CFE72B027F9200A05BCB /* AppDelegate.swift in Sources */,
 				99D8CFE92B027F9200A05BCB /* SceneDelegate.swift in Sources */,
 				9954FA5D2B0517A20013FC2B /* ViewControllerHome.swift in Sources */,
+				992116C62B0D060D00FC2D6E /* ViewControllerGrades.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
