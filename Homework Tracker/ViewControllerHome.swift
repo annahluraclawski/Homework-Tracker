@@ -4,12 +4,16 @@
 //
 //  Created by ANNAHLU RACLAWSKI on 11/15/23.
 //
+//fix this
+public class AppData {
+    static var schools : [School] = []
+}
 
 import UIKit
 
 public class School : Codable {
-    var classs: String
-    var assignment: String
+    var classs : String
+    var assignment : String
     
     init(classs: String, assignment: String) {
         self.classs = classs
@@ -58,9 +62,6 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
 //
 //        }
         
-    
-        
-      
        
     }
     
@@ -71,20 +72,22 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Assignment
-        cell.assignmentOutlet.text = "\(stuff[indexPath.row].classs)"
-        cell.classOutlet.text = "\(stuff[indexPath.row].assignment)"
+        cell.assignmentOutlet.text = "\(stuff[indexPath.row].assignment)"
+        cell.classOutlet.text = "\(stuff[indexPath.row].classs)"
         return cell
     }
     
     @IBAction func addButton(_ sender: UIButton) {
          item = textFieldOutlet.text!
          item2 = textFieldOutlet2.text!
-        var test = School(classs: item, assignment: item2)
+       item = item.lowercased()
+        item2 = item2.lowercased()
+        var test = School(classs: item2, assignment: item)
        
         for n in stuff {
             
-            print(n.assignment)
-            print(item)
+            //print(n.classs)
+            //print(item)
             if(n.assignment == item){
                 let alert = UIAlertController(title: "Error", message: "assignment already inputted", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "ok", style: .destructive, handler: nil)
@@ -103,6 +106,9 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
           if let encoded = try? encoder.encode(stuff) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
+        AppData.schools = stuff
+        print(AppData.schools)
+        
         }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         stuff.remove(at: indexPath.row)
@@ -111,7 +117,8 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
           if let encoded = try? encoder.encode(stuff) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
-        
+        AppData.schools = stuff
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,7 +130,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
           if let encoded = try? encoder.encode(stuff) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
-       
+        AppData.schools = stuff
        
         tableViewOutlet.reloadData()
     }
@@ -131,6 +138,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func sortButtonAction(_ sender: UIButton) {
         stuff.sort{$0.assignment < $1.assignment}
+        AppData.schools = stuff
         tableViewOutlet.reloadData()
     }
     
