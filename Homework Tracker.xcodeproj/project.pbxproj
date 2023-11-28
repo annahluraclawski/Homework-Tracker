@@ -20,6 +20,9 @@
 		99D8D0012B027F9400A05BCB /* Homework_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8D0002B027F9400A05BCB /* Homework_TrackerTests.swift */; };
 		99D8D00B2B027F9400A05BCB /* Homework_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8D00A2B027F9400A05BCB /* Homework_TrackerUITests.swift */; };
 		99D8D00D2B027F9400A05BCB /* Homework_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D8D00C2B027F9400A05BCB /* Homework_TrackerUITestsLaunchTests.swift */; };
+		A135FEAB2B166DB700586018 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135FEAA2B166DB700586018 /* HomeScreen.swift */; };
+		A135FEAD2B16775C00586018 /* GradeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135FEAC2B16775C00586018 /* GradeEnterViewController.swift */; };
+		A136CC502B163C260042ACF0 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136CC4F2B163C260042ACF0 /* Grades.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		99D8D0062B027F9400A05BCB /* Homework TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Homework TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D8D00A2B027F9400A05BCB /* Homework_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework_TrackerUITests.swift; sourceTree = "<group>"; };
 		99D8D00C2B027F9400A05BCB /* Homework_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A135FEAA2B166DB700586018 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A135FEAC2B16775C00586018 /* GradeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeEnterViewController.swift; sourceTree = "<group>"; };
+		A136CC4F2B163C260042ACF0 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 				99D8CFEA2B027F9200A05BCB /* ViewController.swift */,
 				992116C52B0D060D00FC2D6E /* ViewControllerGrades.swift */,
 				99D8CFEC2B027F9200A05BCB /* Main.storyboard */,
+				A135FEAC2B16775C00586018 /* GradeEnterViewController.swift */,
+				A135FEAA2B166DB700586018 /* HomeScreen.swift */,
+				A136CC4F2B163C260042ACF0 /* Grades.swift */,
 				9954FA5E2B051A170013FC2B /* Assignment.swift */,
 				9954FA5C2B0517A20013FC2B /* ViewControllerHome.swift */,
 				99D8CFF22B027F9400A05BCB /* Assets.xcassets */,
@@ -275,8 +284,11 @@
 				99D8CFEB2B027F9200A05BCB /* ViewController.swift in Sources */,
 				99D8CFE72B027F9200A05BCB /* AppDelegate.swift in Sources */,
 				99D8CFE92B027F9200A05BCB /* SceneDelegate.swift in Sources */,
+				A135FEAB2B166DB700586018 /* HomeScreen.swift in Sources */,
+				A136CC502B163C260042ACF0 /* Grades.swift in Sources */,
 				9954FA5D2B0517A20013FC2B /* ViewControllerHome.swift in Sources */,
 				992116C62B0D060D00FC2D6E /* ViewControllerGrades.swift in Sources */,
+				A135FEAD2B16775C00586018 /* GradeEnterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

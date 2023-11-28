@@ -5,21 +5,30 @@
 //  Created by ANNAHLU RACLAWSKI on 11/15/23.
 //
 //fix this
-public class AppData {
-    static var schools : [School] = []
-}
-
-import UIKit
 
 public class School : Codable {
     var classs : String
     var assignment : String
-    
+    var scoret = 0
+    var scoree = 0
     init(classs: String, assignment: String) {
         self.classs = classs
         self.assignment = assignment
     }
 }
+
+public class AppData {
+    static var schools : [School] = []
+    static var title = ""
+    static var totalp = 0
+    static var earn = 0
+    
+    
+}
+
+import UIKit
+
+
 
 class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -29,7 +38,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     let defaults = UserDefaults.standard
     var item = ""
     var item2 = ""
-    var stuff : [School] = []
+    //var stuff : [School] = []
     var assignments = [""]
     var classes = [""]
     var num = 0
@@ -49,14 +58,19 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
         tableViewOutlet.dataSource = self
         //assignments2 = defaults.string(forKey: "theAssignments") ?? ""
         //assignments.append(assignments2)
-        if let items = defaults.data(forKey: "theStuff") {
-                        let decoder = JSONDecoder()
-         //decoding a JSAN to an object
-            if let decoded = try? decoder.decode([School].self, from: items) {
-                //make global variable
-                            stuff = decoded
-                        }
-                }
+        
+        
+//        if let items = defaults.data(forKey: "theStuff") {
+//                        let decoder = JSONDecoder()
+//         //decoding a JSAN to an object
+//            if let decoded = try? decoder.decode([School].self, from: items) {
+//                //make global variable
+//                AppData.schools = decoded
+//                        }
+//                }
+        
+        
+        
 //        for x in stuff{
 //            print(x.classs)
 //
@@ -67,13 +81,13 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stuff.count
+        return AppData.schools.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Assignment
-        cell.assignmentOutlet.text = "\(stuff[indexPath.row].assignment)"
-        cell.classOutlet.text = "\(stuff[indexPath.row].classs)"
+        cell.assignmentOutlet.text = "\(AppData.schools[indexPath.row].assignment)"
+        cell.classOutlet.text = "\(AppData.schools[indexPath.row].classs)"
         return cell
     }
     
@@ -84,7 +98,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
         item2 = item2.lowercased()
         var test = School(classs: item2, assignment: item)
        
-        for n in stuff {
+        for n in AppData.schools {
             
             //print(n.classs)
             //print(item)
@@ -98,47 +112,50 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
              if (count == 0){
-                 stuff.append(test)
+                 AppData.schools.append(test)
             }
             self.tableViewOutlet.reloadData()
       
         let encoder = JSONEncoder()
-          if let encoded = try? encoder.encode(stuff) {
+          if let encoded = try? encoder.encode(AppData.schools) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
-        AppData.schools = stuff
-        print(AppData.schools)
+    //AppData.schools = stuff
+        for x in AppData.schools {
+            print(x.assignment)
+        }
+       
         
         }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        stuff.remove(at: indexPath.row)
+        AppData.schools.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         let encoder = JSONEncoder()
-          if let encoded = try? encoder.encode(stuff) {
+          if let encoded = try? encoder.encode(AppData.schools) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
-        AppData.schools = stuff
+        //AppData.schools = stuff
        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        stuff[indexPath.row].assignment = "completed"
-        stuff[indexPath.row].classs = ""
+        AppData.schools[indexPath.row].assignment = "completed"
+        AppData.schools[indexPath.row].classs = ""
         
         let encoder = JSONEncoder()
-          if let encoded = try? encoder.encode(stuff) {
+          if let encoded = try? encoder.encode(AppData.schools) {
                            defaults.set(encoded, forKey: "theStuff")
                        }
-        AppData.schools = stuff
+        //AppData.schools = stuff
        
         tableViewOutlet.reloadData()
     }
     
     
     @IBAction func sortButtonAction(_ sender: UIButton) {
-        stuff.sort{$0.assignment < $1.assignment}
-        AppData.schools = stuff
+        AppData.schools.sort{$0.assignment < $1.assignment}
+       // AppData.schools = stuff
         tableViewOutlet.reloadData()
     }
     

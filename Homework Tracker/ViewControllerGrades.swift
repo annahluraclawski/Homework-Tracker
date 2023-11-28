@@ -7,23 +7,41 @@
 
 import UIKit
 
-class ViewControllerGrades: UIViewController {
-
+class ViewControllerGrades: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var newOne = AppData.schools
+    
+    @IBOutlet weak var tableViewOut: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableViewOut.dataSource = self
+        tableViewOut.delegate = self
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        tableViewOut.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(AppData.schools.count)
+        return AppData.schools.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Grades
+        cell.assignmentOut.text = AppData.schools[indexPath.row].assignment
+        //cell.gradeOut.text = "\(AppData.earn)/\(AppData.totalp)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AppData.title = AppData.schools[indexPath.row].assignment
+        
+        performSegue(withIdentifier: "toVC", sender: nil)
+    }
 
 }
