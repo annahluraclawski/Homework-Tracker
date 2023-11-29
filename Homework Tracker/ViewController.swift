@@ -9,8 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-
+    //var totalPoints : Int
+    //var earned : Int
+    var classes : [String] = []
     @IBOutlet weak var tableViewOut: UITableView!
     let defaults = UserDefaults.standard
     
@@ -26,7 +27,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
         tableViewOut.dataSource = self
         tableViewOut.delegate = self
-        // Do any additional setup after loading the view.
+      
+       //totalPoints = 0
+       // earned = 0
+        
+        
+        
+//        for tot in AppData.schools{
+//            totalPoints += tot.scoret
+//        }
+//        for earn in AppData.schools{
+//            earned += earn.scoree
+//        }
+        
+        for x in AppData.schools{
+            classes.append(x.classs)
+        }
+        
+        tableViewOut.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -9,19 +9,21 @@
 public class School : Codable {
     var classs : String
     var assignment : String
-    var scoret = 0
-    var scoree = 0
+    var scoret : Int
+    var scoree : Int
     init(classs: String, assignment: String) {
         self.classs = classs
         self.assignment = assignment
+        self.scoree = 0
+        self.scoret = 0
     }
 }
 
 public class AppData {
+   
     static var schools : [School] = []
     static var title = ""
-    static var totalp = 0
-    static var earn = 0
+   static var index = 0
     
     
 }

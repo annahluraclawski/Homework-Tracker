@@ -34,7 +34,7 @@ class ViewControllerGrades: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! Grades
         cell.assignmentOut.text = AppData.schools[indexPath.row].assignment
-        //cell.gradeOut.text = "\(AppData.earn)/\(AppData.totalp)"
+        cell.gradeOut.text = " \(AppData.schools[indexPath.row].scoree)/\(AppData.schools[indexPath.row].scoret)"
         return cell
     }
     
@@ -42,6 +42,7 @@ class ViewControllerGrades: UIViewController, UITableViewDelegate, UITableViewDa
         AppData.title = AppData.schools[indexPath.row].assignment
         
         performSegue(withIdentifier: "toVC", sender: nil)
+        AppData.index = indexPath.row
     }
 
 }

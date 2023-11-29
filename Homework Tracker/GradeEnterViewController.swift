@@ -26,11 +26,12 @@ class GradeEnterViewController: UIViewController {
      
         
         if let t = Int(totalOut.text!){
-            AppData.totalp = t
+            //AppData.pointstot.append(t)
+            AppData.schools[AppData.index].scoret = t
         }
         
         if let e = Int(earnedOut.text!){
-            AppData.earn = e
+            AppData.schools[AppData.index].scoree = e
         }
         
        
