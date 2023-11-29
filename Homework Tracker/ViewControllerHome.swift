@@ -143,7 +143,7 @@ class ViewControllerHome: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         AppData.schools[indexPath.row].assignment = "completed"
-        AppData.schools[indexPath.row].classs = ""
+       // AppData.schools[indexPath.row].classs = ""
         
         let encoder = JSONEncoder()
           if let encoded = try? encoder.encode(AppData.schools) {
