@@ -13,4 +13,10 @@ class Assignment : UITableViewCell{
     
     @IBOutlet weak var classOutlet: UILabel!
     
+   // @IBOutlet weak var classOutlet: UILabel!
+    
+   // @IBOutlet weak var classOutlet: UILabel!
+    
+    
+   
 }

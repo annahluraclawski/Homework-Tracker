@@ -12,6 +12,7 @@ class GradeEnterViewController: UIViewController {
     @IBOutlet weak var titleOut: UILabel!
     @IBOutlet weak var earnedOut: UITextField!
     @IBOutlet weak var totalOut: UITextField!
+    let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,10 +29,20 @@ class GradeEnterViewController: UIViewController {
         if let t = Int(totalOut.text!){
             //AppData.pointstot.append(t)
             AppData.schools[AppData.index].scoret = t
+           
+            let encoder = JSONEncoder()
+              if let encoded = try? encoder.encode(AppData.schools) {
+                               defaults.set(encoded, forKey: "thePoints")
+                           }
         }
         
         if let e = Int(earnedOut.text!){
             AppData.schools[AppData.index].scoree = e
+            
+            let encoder = JSONEncoder()
+              if let encoded = try? encoder.encode(AppData.schools) {
+                               defaults.set(encoded, forKey: "theStuff")
+                           }
         }
         
        

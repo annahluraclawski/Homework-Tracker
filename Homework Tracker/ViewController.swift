@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //var totalPoints : Int
     //var earned : Int
@@ -40,11 +42,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            earned += earn.scoree
 //        }
         
-        for x in AppData.schools{
-            classes.append(x.classs)
-        }
+//        for x in AppData.schools{
+//            classes.append(x.classs)
+//        }
         
         tableViewOut.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        tableViewOut.reloadData()
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +62,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")  as! HomeScreen
-        cell.classOut.text = AppData.schools[indexPath.row].classs
-        cell.gradeOut.text = "A"
+        var c =  AppData.schools[indexPath.row].classs
+     
+        cell.classOut.text = c
+        var tote = 0
+        var tott = 0
+        
+        for a in AppData.schools {
+            if a.classs == c {
+                tote += a.scoree
+                tott += a.scoret
+            }
+        }
+        if tott != 0 {
+            var sco = Double(tote)/Double(tott)
+            sco*=100
+            var scoo = Double(round(10 * sco) / 10)
+            
+            cell.gradeOut.text = "\(scoo)%"
+        }
+        else {
+            cell.gradeOut.text = "\(tote)/\(tott)"
+        }
         return cell
     }
     

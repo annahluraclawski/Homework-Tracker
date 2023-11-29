@@ -23,6 +23,7 @@ class ViewControllerGrades: UIViewController, UITableViewDelegate, UITableViewDa
     }
     override func viewDidAppear(_ animated: Bool) {
         tableViewOut.reloadData()
+        print("hi")
     }
     
     
